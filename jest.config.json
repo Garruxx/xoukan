@@ -1,0 +1,15 @@
+{
+	"testEnvironment": "@happy-dom/jest-environment",
+	"setupFilesAfterEnv": ["./jest.setup.cjs"],
+	"moduleNameMapper": {
+		".(css|less|sass|scss)$": "identity-obj-proxy",
+		"^@srsc/(.*)$": "<rootDir>/src/$1"
+	},
+	"moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+	"transform": {
+		"^.+\\.tsx?$": "jest-esbuild"
+	},
+	"coveragePathIgnorePatterns": ["./dist"],
+	"modulePathIgnorePatterns": ["dist/", "./dist/*"],
+	"rootDir": "."
+}

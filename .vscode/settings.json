@@ -1,0 +1,7 @@
+{
+    "files.exclude": {
+        "desktop-init": true,
+        ".vscode": true,
+        "node_modules": false,
+    }
+}
