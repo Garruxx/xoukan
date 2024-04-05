@@ -17,10 +17,12 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 import '@src/App.sass'
+import { Header } from './components/header/header'
 
 function App() {
 	return (
 		<>
+			<Header />
 			<h1>Hi Xoukan</h1>
 			<p>Can you share that file for me?</p>
 		</>
