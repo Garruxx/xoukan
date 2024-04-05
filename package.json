@@ -21,17 +21,14 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@happy-dom/global-registrator": "^14.4.0",
     "@happy-dom/jest-environment": "^14.4.0",
     "@testing-library/react": "^14.2.2",
-    "@types/bun": "^1.0.12",
     "@types/jest": "^29.5.12",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
-    "bun-module-name-mapper": "^1.0.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",

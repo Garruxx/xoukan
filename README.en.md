@@ -23,7 +23,7 @@ Xoucan, is a static web application designed for sharing files of any size, usin
 - ReactJS with TypeScript (ReactTS)
 - Styles with SASS
 - Packaging and building with Vite
-- Unit testing with Jest and Bun Test
+- Unit testing with Jest
 - Pnpm as package manager
 
 ## How to Use
