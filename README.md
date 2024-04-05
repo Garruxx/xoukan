@@ -22,8 +22,9 @@ Xoucan es una aplicación web estática diseñada para compartir archivos de cua
 
 - ReactJS con TypeScript (ReactTS)
 - Estilos con SASS
-- Empaquetado y construcción con Vite y Bun
+- Empaquetado y construcción con Vite
 - Pruebas unitarias con Jest y Bun Test
+- Pnpm como administrador de paquetes
 
 ## Cómo Usar
 
