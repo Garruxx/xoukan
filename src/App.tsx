@@ -16,16 +16,16 @@
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-import '@src/App.sass'
+import app from '@src/App.module.sass'
 import { Header } from './components/header/header'
 
 function App() {
 	return (
-		<>
+		<div className={app.app}>
 			<Header />
 			<h1>Hi Xoukan</h1>
 			<p>Can you share that file for me?</p>
-		</>
+		</div>
 	)
 }
 
