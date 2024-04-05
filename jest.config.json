@@ -2,8 +2,9 @@
 	"testEnvironment": "@happy-dom/jest-environment",
 	"setupFilesAfterEnv": ["./jest.setup.cjs"],
 	"moduleNameMapper": {
-		".(css|less|sass|scss)$": "identity-obj-proxy",
-		"^@srsc/(.*)$": "<rootDir>/src/$1"
+		"^.+.(svg|png|jpg|jpeg|mp4|txt|webp|webm)$": "jest-transform-stub",
+		".(css|less|sass|scss|svg)$": "identity-obj-proxy",
+		"^@src/(.*)$": "<rootDir>/src/$1"
 	},
 	"moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
 	"transform": {
