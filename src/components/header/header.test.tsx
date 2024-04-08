@@ -21,4 +21,8 @@ describe('header', () => {
 		)
 		expect(getByText('infoText test')).toBeDefined()
 	})
+	test('The git logo must be rendered', () => {
+		const { getByRole } = render(<Header conectionStatus="" infoText="" />)
+		expect(getByRole('img')).toBeDefined()
+	})
 })
