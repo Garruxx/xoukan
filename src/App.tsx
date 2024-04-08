@@ -22,7 +22,7 @@ import { Header } from './components/header/header'
 function App() {
 	return (
 		<div className={app.app}>
-			<Header />
+			<Header conectionStatus="Conexión inactiva" infoText="" />
 			<h1>Hi Xoukan</h1>
 			<p>Can you share that file for me?</p>
 		</div>

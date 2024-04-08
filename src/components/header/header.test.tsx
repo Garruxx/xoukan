@@ -3,7 +3,9 @@ import { Header } from './header'
 
 describe('header', () => {
 	test('should render', () => {
-		const { baseElement } = render(<Header />)
+		const { baseElement } = render(
+			<Header conectionStatus="" infoText="" />,
+		)
 		expect(baseElement).toBeDefined()
 	})
 })
