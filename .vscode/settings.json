@@ -9,6 +9,7 @@
     "conventionalCommits.scopes": [
         "package config",
         "sass",
-        "components"
+        "components",
+        "context"
     ]
 }
