@@ -15,4 +15,10 @@ describe('header', () => {
 		)
 		expect(getByText('online')).toBeDefined()
 	})
+	test('The infoText must be rendered', () => {
+		const { getByText } = render(
+			<Header conectionStatus="" infoText="infoText test" />,
+		)
+		expect(getByText('infoText test')).toBeDefined()
+	})
 })
