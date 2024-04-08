@@ -1,0 +1,42 @@
+.header
+    display: flex
+    width: 100%
+    padding: var(--container-paddings)
+    box-sizing: border-box
+    overflow: hidden
+    justify-content: space-between
+    align-items: center
+    background: var(--primary)
+    img
+        transition: .35s opacity
+        cursor: pointer
+        &:hover
+            opacity: .7
+        &:active
+            opacity: .6
+        
+    div
+        padding-right: 22px
+        max-width: 700px
+        h2
+            font-size: var(--text-title)
+            margin: 0 0 4px 0
+        div
+            background: var(--surface)
+            padding: var(--container-paddings)
+            p
+                box-sizing: border-box
+                overflow: auto
+                height: 40px
+                font-size: var(--text-medium)
+                &::-webkit-scrollbar
+                    width: 4px
+                    background: var(--secondary)
+                    border-radius: 4px
+                &::-webkit-scrollbar-thumb
+                    border-radius: 4px
+                    background: var(--primary)
+
+                span
+                    display: block
+                    margin-right: 4px
