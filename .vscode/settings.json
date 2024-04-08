@@ -4,5 +4,8 @@
         ".vscode": true,
         "node_modules": false,
         "desktop.ini": true
-    }
+    },
+    "conventionalCommits.scopes": [
+        "package config"
+    ]
 }
