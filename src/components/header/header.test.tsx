@@ -8,4 +8,11 @@ describe('header', () => {
 		)
 		expect(baseElement).toBeDefined()
 	})
+
+	test('The connection status must be rendered', () => {
+		const { getByText } = render(
+			<Header conectionStatus="online" infoText="" />,
+		)
+		expect(getByText('online')).toBeDefined()
+	})
 })
