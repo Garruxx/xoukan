@@ -13,12 +13,18 @@ export const Header = ({ conectionStatus, infoText }: HeaderProps) => {
 					</p>
 				</div>
 			</div>
-			<img
-				src={gitLogo}
-				alt="git logo white svg png"
-				width={40}
-				height={40}
-			/>
+			<a
+				href="https://github.com/Garruxx/xoukan"
+				title="visit the repository"
+				target="_blank"
+			>
+				<img
+					src={gitLogo}
+					alt="git logo white svg png"
+					width={40}
+					height={40}
+				/>
+			</a>
 		</div>
 	)
 }

@@ -25,4 +25,12 @@ describe('header', () => {
 		const { getByRole } = render(<Header conectionStatus="" infoText="" />)
 		expect(getByRole('img')).toBeDefined()
 	})
+	test('The link to the repository must be rendered', () => {
+		const { getByRole } = render(<Header conectionStatus="" infoText="" />)
+		const anchor = getByRole('link')
+		expect(anchor).toBeDefined()
+		expect(anchor.getAttribute('href')).toBe(
+			'https://github.com/Garruxx/xoukan',
+		)
+	})
 })
