@@ -3,7 +3,8 @@
         "desktop-ini": true,
         ".vscode": true,
         "node_modules": false,
-        "desktop.ini": true
+        "desktop.ini": true,
+        ".husky": true
     },
     "conventionalCommits.scopes": [
         "package config"
