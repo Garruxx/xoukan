@@ -7,6 +7,7 @@
         ".husky": true
     },
     "conventionalCommits.scopes": [
-        "package config"
+        "package config",
+        "sass"
     ]
 }
