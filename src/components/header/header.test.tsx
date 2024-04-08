@@ -33,4 +33,11 @@ describe('header', () => {
 			'https://github.com/Garruxx/xoukan',
 		)
 	})
+
+	test('Should renderer correctly', () => {
+		const { baseElement } = render(
+			<Header conectionStatus="" infoText="infoText test" />,
+		)
+		expect(baseElement.innerHTML).toMatchSnapshot()
+	})
 })

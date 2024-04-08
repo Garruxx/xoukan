@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`header Should renderer correctly 1`] = `"<div><div class="header"><div><h2></h2><div><p><span>infoText test</span></p></div></div><a href="https://github.com/Garruxx/xoukan" title="visit the repository" target="_blank"><img alt="git logo white svg png" width="40" height="40" src="[object Object]"></a></div></div>"`;
