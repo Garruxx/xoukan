@@ -38,6 +38,7 @@
 		"eslint-plugin-react-refresh": "^0.4.6",
 		"identity-obj-proxy": "^3.0.0",
 		"jest-esbuild": "^0.3.0",
+		"jest-transform-stub": "^2.0.0",
 		"prettier": "^3.2.5",
 		"sass": "^1.74.1",
 		"vite": "^5.2.0"

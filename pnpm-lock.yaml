@@ -67,6 +67,9 @@ devDependencies:
   jest-esbuild:
     specifier: ^0.3.0
     version: 0.3.0(jest@29.7.0)
+  jest-transform-stub:
+    specifier: ^2.0.0
+    version: 2.0.0
   prettier:
     specifier: ^3.2.5
     version: 3.2.5
@@ -3763,6 +3766,10 @@ packages:
       semver: 7.6.0
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /jest-transform-stub@2.0.0:
+    resolution: {integrity: sha512-lspHaCRx/mBbnm3h4uMMS3R5aZzMwyNpNIJLXj4cEsV0mIUtS4IjYJLSoyjRCtnxb6RIGJ4NL2quZzfIeNhbkg==}
     dev: true
 
   /jest-util@29.7.0:
