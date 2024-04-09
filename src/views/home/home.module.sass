@@ -6,7 +6,21 @@
     align-items: center
     flex-direction: column
     gap: 11px
+    padding: var(--container-paddings)
 
     h2
         font-size: var(--text-title)
         font-weight: 400
+
+    button
+        padding: var(--container-paddings)
+        background: var(--primary-btn-bg)
+        color: var(--primary-btn-color)
+        transition: .35s opacity 
+        width: 220px
+        cursor: pointer
+        &:hover
+            opacity: .7
+        &:disabled
+            pointer-events: none
+            opacity: .5
