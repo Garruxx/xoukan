@@ -1,4 +1,4 @@
-export const lang_es = {
+export const ui_es = {
 	welcome_text:
 		'Envía y recibe archivos de cualquier tamaño totalmente gratis',
 	input_label: 'Conectarme a:',

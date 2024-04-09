@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import { Home } from './home'
-import { lang } from './lang/lang'
+import { ui } from './lang/ui'
 describe('home', () => {
 	test('home should be defined', () => {
 		expect(Home).toBeDefined()
@@ -18,7 +18,7 @@ describe('home', () => {
 	test('xoukan welcome text to be rendered', () => {
 		jest.spyOn(window.navigator, 'language', 'get').mockReturnValue('en-US')
 		const { getByText } = render(<Home />)
-		expect(getByText(lang.welcome_text)).toBeDefined()
+		expect(getByText(ui.welcome_text)).toBeDefined()
 		jest.resetAllMocks()
 	})
 })

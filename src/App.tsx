@@ -18,13 +18,13 @@
 */
 import app from '@src/App.module.sass'
 import { Header } from './components/header/header'
+import { Home } from './views/home/home'
 
 function App() {
 	return (
 		<div className={app.app}>
 			<Header conectionStatus="Conexión inactiva" infoText="" />
-			<h1>Hi Xoukan</h1>
-			<p>Can you share that file for me?</p>
+			<Home />
 		</div>
 	)
 }
