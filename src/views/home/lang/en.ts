@@ -3,4 +3,5 @@ export const ui_en = {
 	input_label: 'Connect me to:',
 	input_placeholder: 'Paste here the connection of the other user',
 	copy_conection_btn: 'Copy my connection',
+	copied_connection: 'Copied conection',
 }
