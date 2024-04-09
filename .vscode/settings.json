@@ -11,6 +11,7 @@
         "sass",
         "components",
         "context",
-        "hooks"
+        "hooks",
+        "lang"
     ]
 }
