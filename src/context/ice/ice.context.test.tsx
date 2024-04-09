@@ -1,4 +1,4 @@
-import { JSX, useContext } from 'react'
+import { JSX, useContext, useEffect } from 'react'
 import { ICEContext, ICEContextProvider } from './ice.context'
 import { render, screen } from '@testing-library/react'
 
@@ -35,7 +35,9 @@ describe('ipcContext', () => {
 	test('ICEProvider can change the ICE value', () => {
 		const ChangerElement = () => {
 			const { setICE } = useContext(ICEContext)
-			setICE('newICE')
+			useEffect(() => {
+				setICE('newICE')
+			})
 			return null
 		}
 		const Element = () => {
