@@ -1,9 +1,8 @@
-import { render, screen, cleanup } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { useICE } from './use-ice'
 import { ICEContext } from '../ice.context'
 
 describe('useICE', () => {
-	afterEach(cleanup)
 	test('ICE should be defined', () => {
 		expect(useICE).toBeDefined()
 	})
