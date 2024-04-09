@@ -9,4 +9,9 @@ describe('home', () => {
 		const { baseElement } = render(<Home />)
 		expect(baseElement).toBeDefined()
 	})
+
+	test('xoukan logo to be rendered', () => {
+		const { getByRole } = render(<Home />)
+		expect(getByRole('img')).toBeDefined()
+	})
 })
