@@ -9,6 +9,7 @@ describe('useICE', () => {
 	})
 
 	test('throw an error if it is not within a ICEContextProvider', () => {
+		jest.spyOn(console, 'error').mockImplementation(() => {})
 		const TestComponent = () => {
 			const { ICE } = useICE()
 			return <div>{ICE}</div>
@@ -16,6 +17,7 @@ describe('useICE', () => {
 		expect(() => render(<TestComponent />)).toThrow(
 			'useICE must be used within a ICEContextProvider',
 		)
+		jest.restoreAllMocks()
 	})
 
 	test('renderer if useICE is used inside an ICEContexProvider', () => {
