@@ -4,6 +4,7 @@ import home from './home.module.sass'
 import copy from 'copy-to-clipboard'
 import { useCallback, useState } from 'react'
 import { HomeProps } from './types/home.props'
+import { TextFieldIce } from './components/text-field-ice/text-field-ice'
 export const Home = ({ ICEToCopy }: HomeProps) => {
 	const [isCopied, setIsCopied] = useState(false)
 	const copyToClipboard = useCallback(() => {
@@ -19,6 +20,7 @@ export const Home = ({ ICEToCopy }: HomeProps) => {
 			<button onClick={copyToClipboard} disabled={isCopied}>
 				{isCopied ? ui.copied_connection : ui.copy_conection_btn}
 			</button>
+			<TextFieldIce />
 		</div>
 	)
 }
