@@ -21,6 +21,7 @@ export const TextFieldIce = () => {
 					placeholder={ui.input_placeholder}
 					value={ICE}
 					onChange={handleChange}
+					required
 				/>
 			</label>
 		</div>

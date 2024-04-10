@@ -1,0 +1,27 @@
+.textFieldIce
+    width: 220px
+    label
+        position: relative
+        display: block
+        span
+            font-size: var(--text-title)
+            display: block
+            margin-bottom: 4px
+        input
+            padding: var(--container-paddings)
+            width: 220px
+            height: 37px
+            box-sizing: border-box
+            background: var(--surface)
+            &::placeholder
+                font-size: var(--text-small)
+                color: var(--secondary)
+        &:has(input:valid)::after
+            position: absolute
+            display: flex
+            align-items: center
+            background: var(--surface)
+            content: "⚡"
+            height: 37px
+            right: 0
+            bottom: 0
