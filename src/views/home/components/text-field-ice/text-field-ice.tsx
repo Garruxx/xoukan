@@ -1,6 +1,7 @@
 import { useICE } from '@src/context/ice/hook/use-ice'
 import { ui } from '../../lang/ui'
 import { useCallback } from 'react'
+import textFieldIce from './text-field-ice.module.sass'
 
 export const TextFieldIce = () => {
 	const { ICE, setICE } = useICE()
@@ -11,10 +12,11 @@ export const TextFieldIce = () => {
 		[setICE],
 	)
 	return (
-		<div>
+		<div className={textFieldIce.textFieldIce}>
 			<label>
 				<span>{ui.input_label}</span>
 				<input
+					title={ui.input_placeholder}
 					type="text"
 					placeholder={ui.input_placeholder}
 					value={ICE}
