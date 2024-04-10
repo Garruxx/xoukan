@@ -2,8 +2,8 @@ import { PropsWithChildren, createContext, useState } from 'react'
 import { ICEContextType } from './types/ice-context.type'
 
 export const ICEContext = createContext<ICEContextType>({
-	setICE: () => {},
-	ICE: '',
+	setICE: null,
+	ICE: null,
 })
 
 export const ICEContextProvider = ({ children }: PropsWithChildren) => {

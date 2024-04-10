@@ -36,7 +36,7 @@ describe('ipcContext', () => {
 		const ChangerElement = () => {
 			const { setICE } = useContext(ICEContext)
 			useEffect(() => {
-				setICE('newICE')
+				setICE!('newICE')
 			})
 			return null
 		}
