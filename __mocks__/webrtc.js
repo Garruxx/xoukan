@@ -30,8 +30,8 @@ class MockRTCPeerConnection {
 		this.onicecandidateCallback = jest.fn()
 		this.ondatachannelCallback = jest.fn()
 		this.configuration = configuration
-		this.addIceCandidate = jest.fn(() =>
-			this.onicecandidateCallback('candidate'),
+		this.addIceCandidate = jest.fn((candidate) =>
+			this.onicecandidateCallback(candidate),
 		)
 		this.createOffer = jest.fn(
 			() => new Promise((resolve) => resolve('sesion description')),
