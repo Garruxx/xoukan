@@ -12,6 +12,9 @@
         "components",
         "context",
         "hooks",
-        "lang"
+        "workspace",
+        "jest",
+        "lang",
+        "webRTC"
     ]
 }
