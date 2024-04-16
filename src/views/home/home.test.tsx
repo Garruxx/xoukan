@@ -2,6 +2,7 @@ import { fireEvent, render } from '@testing-library/react'
 import { Home } from './home'
 import { ui } from './lang/ui'
 import { act } from 'react-dom/test-utils'
+import { ICEContextProvider } from '@src/context/ice/ice.context'
 
 jest.useFakeTimers()
 describe('home', () => {
@@ -10,24 +11,40 @@ describe('home', () => {
 	})
 
 	test('home should be render', () => {
-		const { baseElement } = render(<Home ICEToCopy="" />)
+		const { baseElement } = render(
+			<ICEContextProvider>
+				<Home ICEToCopy="" />
+			</ICEContextProvider>,
+		)
 		expect(baseElement).toBeDefined()
 	})
 
 	test('xoukan logo to be rendered', () => {
-		const { getByRole } = render(<Home ICEToCopy="" />)
+		const { getByRole } = render(
+			<ICEContextProvider>
+				<Home ICEToCopy="" />
+			</ICEContextProvider>,
+		)
 		expect(getByRole('img')).toBeDefined()
 	})
 	test('xoukan welcome text to be rendered', () => {
 		jest.spyOn(window.navigator, 'language', 'get').mockReturnValue('en-US')
-		const { getByText } = render(<Home ICEToCopy="" />)
+		const { getByText } = render(
+			<ICEContextProvider>
+				<Home ICEToCopy="" />
+			</ICEContextProvider>,
+		)
 		expect(getByText(ui.welcome_text)).toBeDefined()
 		jest.resetAllMocks()
 	})
 
 	test('button to copy should be rendered', () => {
 		jest.spyOn(window.navigator, 'language', 'get').mockReturnValue('en-US')
-		const { getByRole } = render(<Home ICEToCopy="" />)
+		const { getByRole } = render(
+			<ICEContextProvider>
+				<Home ICEToCopy="" />
+			</ICEContextProvider>,
+		)
 		const button = getByRole('button')
 		expect(button).toBeDefined()
 		expect(button.textContent).toBe(ui.copy_conection_btn)
@@ -40,7 +57,11 @@ describe('home', () => {
 		window.prompt = jest.fn().mockReturnValue('test')
 
 		//renderer
-		const { getByRole } = render(<Home ICEToCopy="" />)
+		const { getByRole } = render(
+			<ICEContextProvider>
+				<Home ICEToCopy="" />
+			</ICEContextProvider>,
+		)
 		const button = getByRole('button')
 
 		// event
@@ -62,7 +83,11 @@ describe('home', () => {
 		window.prompt = jest.fn().mockReturnValue('test')
 
 		//renderer
-		const { getByRole } = render(<Home ICEToCopy="" />)
+		const { getByRole } = render(
+			<ICEContextProvider>
+				<Home ICEToCopy="" />
+			</ICEContextProvider>,
+		)
 		const button = getByRole('button')
 
 		// event
@@ -85,7 +110,11 @@ describe('home', () => {
 		window.prompt = jest.fn().mockReturnValue('test')
 
 		//renderer
-		const { getByRole } = render(<Home ICEToCopy="" />)
+		const { getByRole } = render(
+			<ICEContextProvider>
+				<Home ICEToCopy="" />
+			</ICEContextProvider>,
+		)
 		const button = getByRole('button')
 
 		// event
