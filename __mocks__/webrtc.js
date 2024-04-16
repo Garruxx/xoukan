@@ -4,6 +4,12 @@ class RTCDataChannel {
 		this.close = jest.fn()
 		this.addEventListener = jest.fn()
 		this.removeEventListener = jest.fn()
+		this.onopenCallback = jest.fn()
+		setTimeout(() => this.onopenCallback(), 0)
+	}
+
+	set onopen(callback) {
+		this.onopenCallback = callback
 	}
 }
 
@@ -42,9 +48,10 @@ class MockRTCPeerConnection {
 		this.getSenders = jest.fn()
 		this.getReceivers = jest.fn()
 		this.getTransceivers = jest.fn()
-		this.createDataChannel = jest.fn((args) =>
-			this.ondatachannelCallback({ channel: { ...args } }),
-		)
+		this.createDataChannel = jest.fn((args) => {
+			this.ondatachannelCallback({ channel: { ...args } })
+			return new RTCDataChannel()
+		})
 	}
 
 	/**
