@@ -15,6 +15,7 @@
         "workspace",
         "jest",
         "lang",
-        "webRTC"
+        "webRTC",
+        "typescript"
     ]
 }
