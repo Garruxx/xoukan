@@ -5,16 +5,30 @@ import { ICEContextProvider } from '@src/context/ice/ice.context'
 import { useICE } from '@src/context/ice/hook/use-ice'
 describe('text-field-ICE', () => {
 	it('should render', () => {
-		expect(render(<TextFieldIce />)).toBeDefined()
+		expect(
+			render(
+				<ICEContextProvider>
+					<TextFieldIce />
+				</ICEContextProvider>,
+			),
+		).toBeDefined()
 	})
 
 	it('should render the labbel', () => {
-		const { getByText } = render(<TextFieldIce />)
+		const { getByText } = render(
+			<ICEContextProvider>
+				<TextFieldIce />
+			</ICEContextProvider>,
+		)
 		expect(getByText(ui.input_label)).toBeDefined()
 	})
 
 	it('should render the input', () => {
-		const { getByRole } = render(<TextFieldIce />)
+		const { getByRole } = render(
+			<ICEContextProvider>
+				<TextFieldIce />
+			</ICEContextProvider>,
+		)
 		expect(getByRole('textbox')).toBeDefined()
 	})
 
@@ -28,7 +42,7 @@ describe('text-field-ICE', () => {
 			return (
 				<ICEContextProvider>
 					<TestComponentWithIce />
-					<TextFieldIce />
+					<TextFieldIce />,
 				</ICEContextProvider>
 			)
 		}
