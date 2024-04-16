@@ -17,10 +17,10 @@ export const Home = ({ ICEToCopy }: HomeProps) => {
 		<div className={home.home}>
 			<img src={xoukan_logo} alt="xoukan logo" width={222} height={222} />
 			<h2>{ui.welcome_text}</h2>
+			<TextFieldIce />
 			<button onClick={copyToClipboard} disabled={isCopied}>
 				{isCopied ? ui.copied_connection : ui.copy_conection_btn}
 			</button>
-			<TextFieldIce />
 		</div>
 	)
 }
