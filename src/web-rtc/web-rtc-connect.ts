@@ -20,20 +20,14 @@ import { iceServers } from './ice-servers'
 export class WRTCConnect extends RTCPeerConnection {
 	public channels: Map<string, RTCDataChannel> = new Map()
 	private candidates: RTCIceCandidate[] = []
-	private onChannel?: (channels: Map<string, RTCDataChannel>) => void
 	private candidatesIsEnd: boolean = false
 	public chatChannel: RTCDataChannel | undefined
-	constructor(
-		onChannel?: (channels: Map<string, RTCDataChannel>) => void,
-		RTCconfiguration: RTCConfiguration = { iceServers },
-	) {
+	constructor(RTCconfiguration: RTCConfiguration = { iceServers }) {
 		super(RTCconfiguration)
 		this.channels = new Map()
-		this.onChannel = onChannel
 		const chat = this.createDataChannel('chat')
 		chat.onopen = () => (this.chatChannel = chat)
 		// Handle events
-		this.ondatachannel = this.addChannel
 		this.onicecandidate = this.addICECandidates
 	}
 
@@ -83,10 +77,5 @@ export class WRTCConnect extends RTCPeerConnection {
 	private addICECandidates(e: RTCPeerConnectionIceEvent) {
 		if (!e.candidate) return (this.candidatesIsEnd = true)
 		this.candidates.push(e.candidate)
-	}
-
-	private addChannel(e: RTCDataChannelEvent) {
-		this.channels.set(e.channel.label, e.channel)
-		this.onChannel?.(this.channels)
 	}
 }

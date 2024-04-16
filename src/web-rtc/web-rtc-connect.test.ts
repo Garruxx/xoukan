@@ -27,13 +27,6 @@ describe('WRTCConnect', () => {
 		expect(WRTCConnect).toBeDefined()
 	})
 
-	test('onChannel should be called when new channel is created', () => {
-		const onChannel = jest.fn()
-		const wrtc = new WRTCConnect(onChannel)
-		wrtc.createDataChannel('test')
-		expect(onChannel).toHaveBeenCalledTimes(1)
-	})
-
 	test('should be able to add remote conection', async () => {
 		const wrtc = new WRTCConnect()
 		await wrtc.addRemoteConection({
