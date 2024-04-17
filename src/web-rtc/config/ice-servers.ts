@@ -20,11 +20,11 @@ export const iceServers: RTCIceServer[] = [
 	{
 		urls: [
 			'stun:stun.cloudflare.com:3478',
-			'stun:stun.l.google.com',
-			'stun:stun1.l.google.com',
-			'stun:stun2.l.google.com',
-			'stun:stun3.l.google.com',
-			'stun:stun4.l.google.com',
+			'stun:stun.l.google.com:19302',
+			'stun:stun1.l.google.com:19302',
+			'stun:stun2.l.google.com:19302',
+			'stun:stun3.l.google.com:19302',
+			'stun:stun4.l.google.com:19302',
 			'stun:freeturn.net:5349',
 		],
 	},
@@ -47,17 +47,7 @@ export const iceServers: RTCIceServer[] = [
 		urls: 'stun:stun.relay.metered.ca:80',
 	},
 	{
-		urls: 'turn:global.relay.metered.ca:80',
-		username: 'bb67ccc44cadd8d8336a23a0',
-		credential: 'syLm0Rw72434CZL3',
-	},
-	{
 		urls: 'turn:global.relay.metered.ca:80?transport=tcp',
-		username: 'bb67ccc44cadd8d8336a23a0',
-		credential: 'syLm0Rw72434CZL3',
-	},
-	{
-		urls: 'turn:global.relay.metered.ca:443',
 		username: 'bb67ccc44cadd8d8336a23a0',
 		credential: 'syLm0Rw72434CZL3',
 	},
