@@ -14,6 +14,9 @@ dependencies:
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
+  streamsaver:
+    specifier: ^2.0.6
+    version: 2.0.6
 
 devDependencies:
   '@commitlint/cli':
@@ -37,6 +40,9 @@ devDependencies:
   '@types/react-dom':
     specifier: ^18.2.22
     version: 18.2.24
+  '@types/streamsaver':
+    specifier: ^2.0.4
+    version: 2.0.4
   '@types/wicg-file-system-access':
     specifier: ^2023.10.5
     version: 2023.10.5
@@ -1570,6 +1576,10 @@ packages:
 
   /@types/stack-utils@2.0.3:
     resolution: {integrity: sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==}
+    dev: true
+
+  /@types/streamsaver@2.0.4:
+    resolution: {integrity: sha512-XxpGYIaBP+2NgZ5+4YeG7hI3wYAyOX8QB92xlPpNvStIAvlniml1th+D0bes1lUZz52IWkPlXMf88wy8NzFkbA==}
     dev: true
 
   /@types/wicg-file-system-access@2023.10.5:
@@ -4635,6 +4645,10 @@ packages:
     dependencies:
       internal-slot: 1.0.7
     dev: true
+
+  /streamsaver@2.0.6:
+    resolution: {integrity: sha512-LK4e7TfCV8HzuM0PKXuVUfKyCB1FtT9L0EGxsFk5Up8njj0bXK8pJM9+Wq2Nya7/jslmCQwRK39LFm55h7NBTw==}
+    dev: false
 
   /string-length@4.0.2:
     resolution: {integrity: sha512-+l6rNN5fYHNhZZy41RXsYptCjA2Igmq4EG7kZAYFQI1E1VTXarr6ZPXBg6eq7Y6eK4FEhY6AJlyuFIb/v/S0VQ==}
