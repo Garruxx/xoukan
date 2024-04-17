@@ -19,14 +19,11 @@
 import app from '@src/App.module.sass'
 import { Header } from './components/header/header'
 import { Home } from './views/home/home'
-import { ICEContextProvider } from './context/ice/ice.context'
 function App() {
 	return (
 		<div className={app.app}>
-			<ICEContextProvider>
-				<Header conectionStatus="Conexión inactiva" infoText="" />
-				<Home ICEToCopy="algún texto para copiar" />
-			</ICEContextProvider>
+			<Header conectionStatus="Conexión inactiva" infoText="" />
+			<Home ICEToCopy="algún texto para copiar" />
 		</div>
 	)
 }

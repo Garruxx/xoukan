@@ -18,10 +18,15 @@
 */
 import App from './App'
 import { render } from '@testing-library/react'
+import { ICEContextProvider } from './context/ice/ice.context'
 
 describe('App', () => {
 	test('should render', () => {
-		const { baseElement } = render(<App />)
+		const { baseElement } = render(
+			<ICEContextProvider>
+				<App />
+			</ICEContextProvider>,
+		)
 		expect(baseElement).toBeDefined()
 	})
 })
