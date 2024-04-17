@@ -20,7 +20,7 @@ import { iceServers } from '../config/ice-servers'
 export class WRTCConnect extends RTCPeerConnection {
 	public channels: Map<string, RTCDataChannel> = new Map()
 	private candidates: RTCIceCandidate[] = []
-	private candidatesIsEnd: boolean = false
+	private isEndOfCandidates: boolean = false
 	public chatChannel: RTCDataChannel | undefined
 	constructor(RTCconfiguration: RTCConfiguration = { iceServers }) {
 		super(RTCconfiguration)
@@ -50,12 +50,26 @@ export class WRTCConnect extends RTCPeerConnection {
 		return this.localDescription
 	}
 
+	private async whenIceGatheringComplete() {
+		return await new Promise((resolve) => {
+			const interval = setInterval(() => {
+				if (this.isEndOfCandidates) {
+					clearInterval(interval)
+					resolve(true)
+				}
+			}, 200)
+			setTimeout(() => {
+				clearInterval(interval)
+				resolve(false)
+			}, 15000)
+		})
+	}
+
 	async getLocalConectionStringB64() {
-		if (!this.candidatesIsEnd) {
-			await new Promise((resolve) => setTimeout(resolve, 500))
-		}
+		const offert = await this.getOffert()
+		await this.whenIceGatheringComplete()
 		const str = JSON.stringify({
-			description: await this.getOffert(),
+			description: offert,
 			candidates: this.candidates,
 		})
 		return btoa(str)
@@ -74,8 +88,13 @@ export class WRTCConnect extends RTCPeerConnection {
 		return this.localDescription
 	}
 
+	async getAnswerB64() {
+		const answer = await this.getAnswer()
+		return btoa(JSON.stringify({ description: answer, candidates: [] }))
+	}
+
 	private addICECandidates(e: RTCPeerConnectionIceEvent) {
-		if (!e.candidate) return (this.candidatesIsEnd = true)
+		if (!e.candidate) return (this.isEndOfCandidates = true)
 		this.candidates.push(e.candidate)
 	}
 }

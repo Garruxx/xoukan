@@ -22,6 +22,8 @@ const mockRTCPeerCOnnection = jest.fn()
 jest.spyOn(window, 'RTCPeerConnection').mockImplementation(
 	mockRTCPeerCOnnection,
 )
+
+jest.useFakeTimers()
 describe('WRTCConnect', () => {
 	test('should be defined', () => {
 		expect(WRTCConnect).toBeDefined()
@@ -41,7 +43,29 @@ describe('WRTCConnect', () => {
 
 	test('should be able to get local connection string', async () => {
 		const wrtc = new WRTCConnect()
-		const str = await wrtc.getLocalConectionStringB64()
-		expect(str).toBeDefined()
+		// call this for set candidatesIsEnd in true
+		wrtc['addICECandidates']({} as unknown as RTCPeerConnectionIceEvent)
+		const str = wrtc.getLocalConectionStringB64()
+		jest.advanceTimersByTime(200)
+		expect(str).resolves.toBeDefined()
+	})
+
+	describe('whenIceGatheringComplete', () => {
+		test('should be resolve if the isEndOfCandidates is true', async () => {
+			const wrtc = new WRTCConnect()
+			wrtc['addICECandidates']({} as unknown as RTCPeerConnectionIceEvent)
+			const promise = wrtc['whenIceGatheringComplete']()
+
+			jest.advanceTimersByTime(200)
+			expect(promise).resolves.toBe(true)
+		})
+
+		test('should resolve with false if time out (15s) is exeded', async () => {
+			const wrtc = new WRTCConnect()
+			const promise = wrtc['whenIceGatheringComplete']()
+			jest.advanceTimersByTime(15000)
+
+			return expect(promise).resolves.toBe(false)
+		})
 	})
 })
