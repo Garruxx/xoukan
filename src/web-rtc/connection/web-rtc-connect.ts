@@ -21,7 +21,6 @@ export class WRTCConnect extends RTCPeerConnection {
 	public channels: Map<string, RTCDataChannel> = new Map()
 	private candidates: RTCIceCandidate[] = []
 	private isEndOfCandidates: boolean = false
-	public chatChannel: RTCDataChannel | undefined
 	constructor(RTCconfiguration: RTCConfiguration = { iceServers }) {
 		super(RTCconfiguration)
 		this.channels = new Map()
