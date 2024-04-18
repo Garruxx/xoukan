@@ -62,6 +62,7 @@ class MockRTCPeerConnection {
 		this.onicecandidateCallback = callback
 	}
 
+	get iceConnectionState() {}
 	/**
 	 * @param {jest.Mock<RTCDataChannelEventInit>} callback
 	 * @this RTCPeerConnection
