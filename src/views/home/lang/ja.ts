@@ -4,4 +4,6 @@ export const ui_ja = {
 	input_placeholder: '相手の接続先をここに貼り付ける',
 	copy_conection_btn: '私の部分をコピーする',
 	copied_connection: 'コピー済み',
+	copy_answer: '答えをコピーする。',
+	copied_answer: '応答はコピーされた',
 }

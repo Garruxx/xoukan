@@ -5,4 +5,6 @@ export const ui_es = {
 	input_placeholder: 'Pega aquí la conexión de el otro usuario',
 	copy_conection_btn: 'Copiar mi conexión',
 	copied_connection: 'Conexión copiada',
+	copy_answer: 'Copiar respuesta',
+	copied_answer: 'Respuesta copiada',
 }

@@ -4,4 +4,6 @@ export const ui_en = {
 	input_placeholder: 'Paste here the connection of the other user',
 	copy_conection_btn: 'Copy my connection',
 	copied_connection: 'Copied conection',
+	copy_answer: 'Copy the answer',
+	copied_answer: 'Copied answer',
 }
