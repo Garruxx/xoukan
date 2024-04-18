@@ -13,7 +13,7 @@ describe('home', () => {
 	test('home should be render', () => {
 		const { baseElement } = render(
 			<SignalContextProvider>
-				<Home ICEToCopy="" />
+				<Home signalToCopy="" />
 			</SignalContextProvider>,
 		)
 		expect(baseElement).toBeDefined()
@@ -22,7 +22,7 @@ describe('home', () => {
 	test('xoukan logo to be rendered', () => {
 		const { getByRole } = render(
 			<SignalContextProvider>
-				<Home ICEToCopy="" />
+				<Home signalToCopy="" />
 			</SignalContextProvider>,
 		)
 		expect(getByRole('img')).toBeDefined()
@@ -31,7 +31,7 @@ describe('home', () => {
 		jest.spyOn(window.navigator, 'language', 'get').mockReturnValue('en-US')
 		const { getByText } = render(
 			<SignalContextProvider>
-				<Home ICEToCopy="" />
+				<Home signalToCopy="" />
 			</SignalContextProvider>,
 		)
 		expect(getByText(ui.welcome_text)).toBeDefined()
@@ -42,7 +42,7 @@ describe('home', () => {
 		jest.spyOn(window.navigator, 'language', 'get').mockReturnValue('en-US')
 		const { getByRole } = render(
 			<SignalContextProvider>
-				<Home ICEToCopy="" />
+				<Home signalToCopy="" />
 			</SignalContextProvider>,
 		)
 		const button = getByRole('button')
@@ -59,7 +59,7 @@ describe('home', () => {
 		//renderer
 		const { getByRole } = render(
 			<SignalContextProvider>
-				<Home ICEToCopy="" />
+				<Home signalToCopy="" />
 			</SignalContextProvider>,
 		)
 		const button = getByRole('button')
@@ -85,7 +85,7 @@ describe('home', () => {
 		//renderer
 		const { getByRole } = render(
 			<SignalContextProvider>
-				<Home ICEToCopy="" />
+				<Home signalToCopy="" />
 			</SignalContextProvider>,
 		)
 		const button = getByRole('button')
@@ -112,7 +112,7 @@ describe('home', () => {
 		//renderer
 		const { getByRole } = render(
 			<SignalContextProvider>
-				<Home ICEToCopy="" />
+				<Home signalToCopy="" />
 			</SignalContextProvider>,
 		)
 		const button = getByRole('button')

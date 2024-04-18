@@ -5,13 +5,13 @@ import copy from 'copy-to-clipboard'
 import { useCallback, useState } from 'react'
 import { HomeProps } from './types/home.props'
 import { TextFieldSignal } from './components/text-field-signal/text-field-signal'
-export const Home = ({ ICEToCopy }: HomeProps) => {
+export const Home = ({ signalToCopy }: HomeProps) => {
 	const [isCopied, setIsCopied] = useState(false)
 	const copyToClipboard = useCallback(() => {
-		copy(ICEToCopy)
+		copy(signalToCopy)
 		setIsCopied(true)
 		setTimeout(() => setIsCopied(false), 2000)
-	}, [ICEToCopy])
+	}, [signalToCopy])
 
 	return (
 		<div className={home.home}>

@@ -1,3 +1,3 @@
 export interface HomeProps {
-	ICEToCopy: string
+	signalToCopy: string
 }
