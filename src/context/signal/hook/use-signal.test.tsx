@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { useICE } from './use-ice'
+import { useICE } from './use-signal'
 import { ICEContext, ICEContextProvider } from '../signal.context'
 
 describe('useICE', () => {
