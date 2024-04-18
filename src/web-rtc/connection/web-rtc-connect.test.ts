@@ -68,4 +68,25 @@ describe('WRTCConnect', () => {
 			return expect(promise).resolves.toBe(false)
 		})
 	})
+
+	describe('onclose', () => {
+		test('should be called when close', () => {
+			const wrtc = new WRTCConnect()
+			const mock = jest.fn()
+			wrtc.onclose = mock
+			wrtc.close()
+			expect(mock).toHaveBeenCalled()
+		})
+		test('should be called when the conexion is closed', async () => {
+			const wrtc = new WRTCConnect()
+			jest.spyOn(wrtc, 'iceConnectionState', 'get').mockReturnValue(
+				'closed',
+			)
+
+			const mock = jest.fn()
+			wrtc.onclose = mock
+			wrtc.dispatchEvent(new Event('oniceconnectionstatechange'))
+			expect(mock).toHaveBeenCalled()
+		})
+	})
 })

@@ -18,14 +18,26 @@
 */
 import { iceServers } from '../config/ice-servers'
 export class WRTCConnect extends RTCPeerConnection {
-	public channels: Map<string, RTCDataChannel> = new Map()
 	private candidates: RTCIceCandidate[] = []
 	private isEndOfCandidates: boolean = false
+	private onCloseCallback: VoidFunction | undefined
+	private nativeClose: VoidFunction
 	constructor(RTCconfiguration: RTCConfiguration = { iceServers }) {
 		super(RTCconfiguration)
-		this.channels = new Map()
 		// Handle events
 		this.onicecandidate = this.addICECandidates
+		this.nativeClose = this.close
+		this.close = () => {
+			this.nativeClose()
+			this.onCloseCallback?.()
+		}
+	}
+
+	set onclose(callback: VoidFunction) {
+		this.onCloseCallback = callback
+		this.oniceconnectionstatechange = () => {
+			if (this.iceConnectionState !== 'connected') callback()
+		}
 	}
 
 	async addRemoteConection(conection: {
