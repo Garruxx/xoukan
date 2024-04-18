@@ -59,7 +59,7 @@ export class WRTCConnect extends RTCPeerConnection {
 			setTimeout(() => {
 				clearInterval(interval)
 				resolve(false)
-			}, 15000)
+			}, 2222)
 		})
 	}
 

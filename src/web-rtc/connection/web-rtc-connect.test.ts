@@ -63,7 +63,7 @@ describe('WRTCConnect', () => {
 		test('should resolve with false if time out (15s) is exeded', async () => {
 			const wrtc = new WRTCConnect()
 			const promise = wrtc['whenIceGatheringComplete']()
-			jest.advanceTimersByTime(15000)
+			jest.advanceTimersByTime(2222)
 
 			return expect(promise).resolves.toBe(false)
 		})
