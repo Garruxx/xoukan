@@ -99,3 +99,5 @@ export class WRTCFileTransfer extends WRTCConnect {
 		})
 	}
 }
+
+export type { WRTCFileTransfer as WRTCFileTransferType }
