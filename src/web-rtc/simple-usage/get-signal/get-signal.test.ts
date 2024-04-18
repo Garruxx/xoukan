@@ -17,11 +17,11 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 import { WRTCConnectType } from '@src/web-rtc/connection/web-rtc-connect'
-import { getOffert } from './get-offer'
+import { getSignal } from './get-signal'
 
-describe('getOffert', () => {
+describe('getSignal', () => {
 	test('should be defined', () => {
-		expect(getOffert).toBeDefined()
+		expect(getSignal).toBeDefined()
 	})
 
 	test('should be create the baseChannel', async () => {
@@ -32,7 +32,7 @@ describe('getOffert', () => {
 			getLocalSignalB64: jest.fn(async () => 'test'),
 		} as unknown as WRTCConnectType
 
-		await getOffert(wrtcConnect, jest.fn())
+		await getSignal(wrtcConnect, jest.fn())
 		expect(wrtcConnect.createDataChannel).toHaveBeenCalled()
 	})
 
@@ -49,7 +49,7 @@ describe('getOffert', () => {
 		} as unknown as WRTCConnectType
 
 		const onConnection = jest.fn()
-		await getOffert(wrtcConnect, jest.fn(), onConnection)
+		await getSignal(wrtcConnect, jest.fn(), onConnection)
 		events.onOpen()
 		expect(onConnection).toHaveBeenCalledWith(true)
 	})
@@ -66,7 +66,7 @@ describe('getOffert', () => {
 			getLocalSignalB64: jest.fn(async () => 'test'),
 		} as unknown as WRTCConnectType
 
-		await getOffert(wrtcConnect, jest.fn())
+		await getSignal(wrtcConnect, jest.fn())
 		events.onOpen()
 		expect(close).toHaveBeenCalledTimes(1)
 	})
@@ -87,18 +87,18 @@ describe('getOffert', () => {
 		} as unknown as WRTCConnectType
 		const onConnection = jest.fn()
 
-		await getOffert(wrtcConnect, jest.fn(), onConnection)
+		await getSignal(wrtcConnect, jest.fn(), onConnection)
 		events.onClose()
 		expect(onConnection).toHaveBeenCalledWith(false)
 	})
 
-	test('should be call setOffert with the offert is all is ok', async () => {
+	test('should be call setSigetSignal with the SigetSignal is all is ok', async () => {
 		const wrtcConnect = {
 			createDataChannel: jest.fn(() => ({})),
 			getLocalSignalB64: jest.fn(async () => 'test'),
 		} as unknown as WRTCConnectType
-		const setOffert = jest.fn()
-		await getOffert(wrtcConnect, setOffert)
-		expect(setOffert).toHaveBeenCalledWith('test')
+		const setSigetSignal = jest.fn()
+		await getSignal(wrtcConnect, setSigetSignal)
+		expect(setSigetSignal).toHaveBeenCalledWith('test')
 	})
 })

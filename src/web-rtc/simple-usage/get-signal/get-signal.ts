@@ -18,9 +18,9 @@
 */
 import { WRTCConnectType } from '../../connection/web-rtc-connect'
 
-export const getOffert = async (
+export const getSignal = async (
 	wrtcConnectTion: WRTCConnectType,
-	setOffert: (offer: string) => void,
+	setSignal: (offer: string) => void,
 	onConection?: (isOpen: boolean) => void,
 ) => {
 	// For ICE candidates to be created
@@ -33,5 +33,5 @@ export const getOffert = async (
 		onConection?.(false)
 	}
 
-	setOffert(await wrtcConnectTion.getLocalSignalB64())
+	setSignal(await wrtcConnectTion.getLocalSignalB64())
 }
