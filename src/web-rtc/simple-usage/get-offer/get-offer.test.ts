@@ -17,7 +17,7 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 import { WRTCConnectType } from '@src/web-rtc/connection/web-rtc-connect'
-import { getOffert } from './get-offert'
+import { getOffert } from './get-offer'
 
 describe('getOffert', () => {
 	test('should be defined', () => {
