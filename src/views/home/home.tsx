@@ -18,7 +18,10 @@ export const Home = ({ signalToCopy }: HomeProps) => {
 			<img src={xoukan_logo} alt="xoukan logo" width={222} height={222} />
 			<h2>{ui.welcome_text}</h2>
 			<TextFieldSignal />
-			<button onClick={copyToClipboard} disabled={isCopied}>
+			<button
+				onClick={copyToClipboard}
+				disabled={isCopied || !signalToCopy}
+			>
 				{isCopied ? ui.copied_connection : ui.copy_conection_btn}
 			</button>
 		</div>
