@@ -5,8 +5,10 @@ import copy from 'copy-to-clipboard'
 import { useCallback, useState } from 'react'
 import { HomeProps } from './types/home.props'
 import { TextFieldSignal } from './components/text-field-signal/text-field-signal'
+import { useSignal } from '@src/context/signal/hook/use-signal'
 export const Home = ({ signalToCopy }: HomeProps) => {
 	const [isCopied, setIsCopied] = useState(false)
+	const { signal } = useSignal()
 	const copyToClipboard = useCallback(() => {
 		copy(signalToCopy)
 		setIsCopied(true)
@@ -22,7 +24,15 @@ export const Home = ({ signalToCopy }: HomeProps) => {
 				onClick={copyToClipboard}
 				disabled={isCopied || !signalToCopy}
 			>
-				{isCopied ? ui.copied_connection : ui.copy_conection_btn}
+				{signal ? (
+					<span>{isCopied ? ui.copied_answer : ui.copy_answer}</span>
+				) : (
+					<span>
+						{isCopied
+							? ui.copied_connection
+							: ui.copy_conection_btn}
+					</span>
+				)}
 			</button>
 		</div>
 	)
