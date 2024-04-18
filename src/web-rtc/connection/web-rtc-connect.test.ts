@@ -45,7 +45,7 @@ describe('WRTCConnect', () => {
 		const wrtc = new WRTCConnect()
 		// call this for set candidatesIsEnd in true
 		wrtc['addICECandidates']({} as unknown as RTCPeerConnectionIceEvent)
-		const str = wrtc.getLocalConectionStringB64()
+		const str = wrtc.getLocalSignalB64()
 		jest.advanceTimersByTime(200)
 		expect(str).resolves.toBeDefined()
 	})

@@ -29,7 +29,7 @@ describe('getOffert', () => {
 			createDataChannel: jest.fn(() => ({
 				onopen: jest.fn(),
 			})),
-			getLocalConectionStringB64: jest.fn(async () => 'test'),
+			getLocalSignalB64: jest.fn(async () => 'test'),
 		} as unknown as WRTCConnectType
 
 		await getOffert(wrtcConnect, jest.fn())
@@ -45,7 +45,7 @@ describe('getOffert', () => {
 				},
 				close: jest.fn(),
 			})),
-			getLocalConectionStringB64: jest.fn(async () => 'test'),
+			getLocalSignalB64: jest.fn(async () => 'test'),
 		} as unknown as WRTCConnectType
 
 		const onConnection = jest.fn()
@@ -63,7 +63,7 @@ describe('getOffert', () => {
 				},
 				close,
 			})),
-			getLocalConectionStringB64: jest.fn(async () => 'test'),
+			getLocalSignalB64: jest.fn(async () => 'test'),
 		} as unknown as WRTCConnectType
 
 		await getOffert(wrtcConnect, jest.fn())
@@ -83,7 +83,7 @@ describe('getOffert', () => {
 			set onclose(cb: jest.Mock<VoidFunction>) {
 				events['onClose'] = cb
 			},
-			getLocalConectionStringB64: jest.fn(async () => 'test'),
+			getLocalSignalB64: jest.fn(async () => 'test'),
 		} as unknown as WRTCConnectType
 		const onConnection = jest.fn()
 
@@ -95,7 +95,7 @@ describe('getOffert', () => {
 	test('should be call setOffert with the offert is all is ok', async () => {
 		const wrtcConnect = {
 			createDataChannel: jest.fn(() => ({})),
-			getLocalConectionStringB64: jest.fn(async () => 'test'),
+			getLocalSignalB64: jest.fn(async () => 'test'),
 		} as unknown as WRTCConnectType
 		const setOffert = jest.fn()
 		await getOffert(wrtcConnect, setOffert)

@@ -53,7 +53,7 @@ export class WRTCConnect extends RTCPeerConnection {
 		})
 	}
 
-	async getOffer() {
+	async getSignal() {
 		const offer = await this.createOffer()
 		await this.setLocalDescription(offer)
 		return this.localDescription
@@ -74,8 +74,8 @@ export class WRTCConnect extends RTCPeerConnection {
 		})
 	}
 
-	async getLocalConectionStringB64() {
-		const offer = await this.getOffer()
+	async getLocalSignalB64() {
+		const offer = await this.getSignal()
 		await this.whenIceGatheringComplete()
 		const str = JSON.stringify({
 			description: offer,
@@ -85,7 +85,7 @@ export class WRTCConnect extends RTCPeerConnection {
 		return btoa(str)
 	}
 
-	async setRemoteConectionStringB64(str: string) {
+	async setRemoteSignalB64(str: string) {
 		const conection = JSON.parse(atob(str))
 		await this.addRemoteConection(conection)
 		this.candidates = []

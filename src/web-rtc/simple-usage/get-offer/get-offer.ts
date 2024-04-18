@@ -33,5 +33,5 @@ export const getOffert = async (
 		onConection?.(false)
 	}
 
-	setOffert(await wrtcConnectTion.getLocalConectionStringB64())
+	setOffert(await wrtcConnectTion.getLocalSignalB64())
 }
