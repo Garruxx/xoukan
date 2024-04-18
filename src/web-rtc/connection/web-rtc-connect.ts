@@ -80,6 +80,7 @@ export class WRTCConnect extends RTCPeerConnection {
 		const str = JSON.stringify({
 			description: offert,
 			candidates: this.candidates,
+			type: 'offert',
 		})
 		return btoa(str)
 	}
@@ -99,7 +100,13 @@ export class WRTCConnect extends RTCPeerConnection {
 
 	async getAnswerB64() {
 		const answer = await this.getAnswer()
-		return btoa(JSON.stringify({ description: answer, candidates: [] }))
+		return btoa(
+			JSON.stringify({
+				description: answer,
+				candidates: [],
+				type: 'answer',
+			}),
+		)
 	}
 
 	private addICECandidates(e: RTCPeerConnectionIceEvent) {
