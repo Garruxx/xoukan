@@ -20,12 +20,12 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import '@src/index.sass'
-import { ICEContextProvider } from './context/ice/ice.context.tsx'
+import { SignalContextProvider } from './context/signal/signal.context.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
-		<ICEContextProvider>
+		<SignalContextProvider>
 			<App />
-		</ICEContextProvider>
+		</SignalContextProvider>
 	</React.StrictMode>,
 )
