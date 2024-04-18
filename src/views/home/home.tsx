@@ -4,7 +4,7 @@ import home from './home.module.sass'
 import copy from 'copy-to-clipboard'
 import { useCallback, useState } from 'react'
 import { HomeProps } from './types/home.props'
-import { TextFieldIce } from './components/text-field-signal/text-field-signal'
+import { TextFieldSignal } from './components/text-field-signal/text-field-signal'
 export const Home = ({ ICEToCopy }: HomeProps) => {
 	const [isCopied, setIsCopied] = useState(false)
 	const copyToClipboard = useCallback(() => {
@@ -17,7 +17,7 @@ export const Home = ({ ICEToCopy }: HomeProps) => {
 		<div className={home.home}>
 			<img src={xoukan_logo} alt="xoukan logo" width={222} height={222} />
 			<h2>{ui.welcome_text}</h2>
-			<TextFieldIce />
+			<TextFieldSignal />
 			<button onClick={copyToClipboard} disabled={isCopied}>
 				{isCopied ? ui.copied_connection : ui.copy_conection_btn}
 			</button>

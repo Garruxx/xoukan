@@ -1,5 +1,5 @@
 import { act, fireEvent, render } from '@testing-library/react'
-import { TextFieldIce } from './text-field-signal'
+import { TextFieldSignal } from './text-field-signal'
 import { ui } from '../../lang/ui'
 import { SignalContextProvider } from '@src/context/signal/signal.context'
 import { useSignal } from '@src/context/signal/hook/use-signal'
@@ -8,7 +8,7 @@ describe('text-field-ICE', () => {
 		expect(
 			render(
 				<SignalContextProvider>
-					<TextFieldIce />
+					<TextFieldSignal />
 				</SignalContextProvider>,
 			),
 		).toBeDefined()
@@ -17,7 +17,7 @@ describe('text-field-ICE', () => {
 	it('should render the labbel', () => {
 		const { getByText } = render(
 			<SignalContextProvider>
-				<TextFieldIce />
+				<TextFieldSignal />
 			</SignalContextProvider>,
 		)
 		expect(getByText(ui.input_label)).toBeDefined()
@@ -26,7 +26,7 @@ describe('text-field-ICE', () => {
 	it('should render the input', () => {
 		const { getByRole } = render(
 			<SignalContextProvider>
-				<TextFieldIce />
+				<TextFieldSignal />
 			</SignalContextProvider>,
 		)
 		expect(getByRole('textbox')).toBeDefined()
@@ -42,7 +42,7 @@ describe('text-field-ICE', () => {
 			return (
 				<SignalContextProvider>
 					<TestComponentWithSignal />
-					<TextFieldIce />,
+					<TextFieldSignal />,
 				</SignalContextProvider>
 			)
 		}

@@ -3,7 +3,7 @@ import { ui } from '../../lang/ui'
 import { useCallback } from 'react'
 import textFieldIce from './text-field-signal.module.sass'
 
-export const TextFieldIce = () => {
+export const TextFieldSignal = () => {
 	const { signal, setSignal } = useSignal()
 	const handleChange = useCallback(
 		(e: React.ChangeEvent<HTMLInputElement>) => {
