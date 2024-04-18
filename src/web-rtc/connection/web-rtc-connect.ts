@@ -25,8 +25,6 @@ export class WRTCConnect extends RTCPeerConnection {
 	constructor(RTCconfiguration: RTCConfiguration = { iceServers }) {
 		super(RTCconfiguration)
 		this.channels = new Map()
-		const chat = this.createDataChannel('chat')
-		chat.onopen = () => (this.chatChannel = chat)
 		// Handle events
 		this.onicecandidate = this.addICECandidates
 	}
