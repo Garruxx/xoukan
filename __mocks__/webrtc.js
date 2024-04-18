@@ -29,6 +29,7 @@ class MockRTCPeerConnection {
 	constructor(configuration) {
 		this.onicecandidateCallback = jest.fn()
 		this.ondatachannelCallback = jest.fn()
+		this.oniceconnectionstatechangeCallback = jest.fn()
 		this.configuration = configuration
 		this.addIceCandidate = jest.fn((candidate) =>
 			this.onicecandidateCallback(candidate),
@@ -61,6 +62,13 @@ class MockRTCPeerConnection {
 	set onicecandidate(callback) {
 		this.onicecandidateCallback = callback
 	}
+	/**
+	 * @param {jest.Mock<Event>} callback
+	 * @this RTCPeerConnection
+	 */
+	set oniceconnectionstatechange(callback) {
+		this.oniceconnectionstatechangeCallback = callback
+	}
 
 	get iceConnectionState() {}
 	/**
@@ -69,6 +77,15 @@ class MockRTCPeerConnection {
 	 */
 	set ondatachannel(callback) {
 		this.ondatachannelCallback = callback
+	}
+
+	dispatchEvent(event) {
+		if (event.type === 'icecandidate') {
+			this.onicecandidateCallback(event)
+		}
+		if (event.type === 'oniceconnectionstatechange') {
+			this.oniceconnectionstatechangeCallback(event)
+		}
 	}
 }
 
