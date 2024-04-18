@@ -1,4 +1,4 @@
-import { useICE } from '@src/context/ice/hook/use-ice'
+import { useICE } from '@src/context/signal/hook/use-ice'
 import { ui } from '../../lang/ui'
 import { useCallback } from 'react'
 import textFieldIce from './text-field-ice.module.sass'

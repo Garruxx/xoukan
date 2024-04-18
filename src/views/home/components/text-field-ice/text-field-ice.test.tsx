@@ -1,8 +1,8 @@
 import { act, fireEvent, render } from '@testing-library/react'
 import { TextFieldIce } from './text-field-ice'
 import { ui } from '../../lang/ui'
-import { ICEContextProvider } from '@src/context/ice/ice.context'
-import { useICE } from '@src/context/ice/hook/use-ice'
+import { ICEContextProvider } from '@src/context/signal/ice.context'
+import { useICE } from '@src/context/signal/hook/use-ice'
 describe('text-field-ICE', () => {
 	it('should render', () => {
 		expect(

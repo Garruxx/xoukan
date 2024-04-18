@@ -2,7 +2,7 @@ import { fireEvent, render } from '@testing-library/react'
 import { Home } from './home'
 import { ui } from './lang/ui'
 import { act } from 'react-dom/test-utils'
-import { ICEContextProvider } from '@src/context/ice/ice.context'
+import { ICEContextProvider } from '@src/context/signal/ice.context'
 
 jest.useFakeTimers()
 describe('home', () => {
