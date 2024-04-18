@@ -114,3 +114,5 @@ export class WRTCConnect extends RTCPeerConnection {
 		this.candidates.push(e.candidate)
 	}
 }
+
+export type WRTCConnectType = WRTCConnect
