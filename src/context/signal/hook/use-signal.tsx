@@ -1,10 +1,10 @@
 import { useContext } from 'react'
-import { ICEContext } from '../signal.context'
+import { SignalContext } from '../signal.context'
 
-export const useICE = () => {
-	const { ICE, setICE } = useContext(ICEContext)
-	if (ICE == null || setICE == null) {
-		throw new Error('useICE must be used within a ICEContextProvider')
+export const useSignal = () => {
+	const { signal, setSignal } = useContext(SignalContext)
+	if (signal == null || setSignal == null) {
+		throw new Error('useSignal must be used within a SignalContextProvider')
 	}
-	return { ICE, setICE }
+	return { signal, setSignal }
 }

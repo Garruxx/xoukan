@@ -1,54 +1,54 @@
 import { render, screen } from '@testing-library/react'
-import { useICE } from './use-signal'
-import { ICEContext, ICEContextProvider } from '../signal.context'
+import { useSignal } from './use-signal'
+import { SignalContext, SignalContextProvider } from '../signal.context'
 
-describe('useICE', () => {
-	test('ICE should be defined', () => {
-		expect(useICE).toBeDefined()
+describe('useSignal', () => {
+	test('signal should be defined', () => {
+		expect(useSignal).toBeDefined()
 	})
 
-	test('throw an error if it is not within a ICEContextProvider', () => {
+	test('throw an error if it is not within a signalContextProvider', () => {
 		jest.spyOn(console, 'error').mockImplementation(() => {})
 		const TestComponent = () => {
-			const { ICE } = useICE()
-			return <div>{ICE}</div>
+			const { signal } = useSignal()
+			return <div>{signal}</div>
 		}
 		expect(() => render(<TestComponent />)).toThrow(
-			'useICE must be used within a ICEContextProvider',
+			'useSignal must be used within a SignalContextProvider',
 		)
 		jest.restoreAllMocks()
 	})
 
-	test('if ICE is empty and within your Provider, no error will be thrown.', () => {
+	test('if signal is empty and within your Provider, no error will be thrown.', () => {
 		const TestComponent = () => {
-			const { ICE } = useICE()
-			return <div>{ICE}</div>
+			const { signal } = useSignal()
+			return <div>{signal}</div>
 		}
 		const TestComponentWithProvider = () => {
 			return (
-				<ICEContextProvider>
+				<SignalContextProvider>
 					<TestComponent />
-				</ICEContextProvider>
+				</SignalContextProvider>
 			)
 		}
 
 		expect(render(<TestComponentWithProvider />)).toBeDefined()
 	})
-	test('renderer if useICE is used inside an ICEContexProvider', () => {
+	test('renderer if useSignal is used inside an SignalContexProvider', () => {
 		const TestComponent = () => {
-			const { ICE } = useICE()
-			return <div>{ICE}</div>
+			const { signal } = useSignal()
+			return <div>{signal}</div>
 		}
 		const TestComponentWithProvider = () => {
 			return (
-				<ICEContext.Provider
-					value={{ ICE: 'ICEText', setICE: () => {} }}
+				<SignalContext.Provider
+					value={{ signal: 'signalText', setSignal: () => {} }}
 				>
 					<TestComponent />
-				</ICEContext.Provider>
+				</SignalContext.Provider>
 			)
 		}
 		render(<TestComponentWithProvider />)
-		expect(screen.getByText('ICEText')).toBeDefined()
+		expect(screen.getByText('signalText')).toBeDefined()
 	})
 })

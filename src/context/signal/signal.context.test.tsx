@@ -1,5 +1,5 @@
 import { JSX, useContext, useEffect } from 'react'
-import { ICEContext, ICEContextProvider } from './signal.context'
+import { SignalContext, SignalContextProvider } from './signal.context'
 import { render, screen } from '@testing-library/react'
 
 describe('ipcContext', () => {
@@ -7,49 +7,49 @@ describe('ipcContext', () => {
 
 	beforeEach(() => {
 		Consumer = () => {
-			const { ICE } = useContext(ICEContext)
-			return <p>{ICE}</p>
+			const { signal } = useContext(SignalContext)
+			return <p>{signal}</p>
 		}
 	})
 	test('should be defined', () => {
-		expect(ICEContext).toBeDefined()
+		expect(SignalContext).toBeDefined()
 	})
 
-	test('ICEConsumer shows the value', () => {
+	test('signalConsumer shows the value', () => {
 		const Element = () => {
 			return (
-				<ICEContext.Provider
+				<SignalContext.Provider
 					value={{
-						ICE: 'baseICE',
-						setICE: () => {},
+						signal: 'basesignal',
+						setSignal: () => {},
 					}}
 				>
 					<Consumer />
-				</ICEContext.Provider>
+				</SignalContext.Provider>
 			)
 		}
 		render(<Element />)
-		expect(screen.getByText('baseICE')).toBeDefined()
+		expect(screen.getByText('basesignal')).toBeDefined()
 	})
 
-	test('ICEProvider can change the ICE value', () => {
+	test('signalProvider can change the signal value', () => {
 		const ChangerElement = () => {
-			const { setICE } = useContext(ICEContext)
+			const { setSignal } = useContext(SignalContext)
 			useEffect(() => {
-				setICE!('newICE')
+				setSignal!('newsignal')
 			})
 			return null
 		}
 		const Element = () => {
 			return (
-				<ICEContextProvider>
+				<SignalContextProvider>
 					<Consumer />
 					<ChangerElement />
-				</ICEContextProvider>
+				</SignalContextProvider>
 			)
 		}
 
 		render(<Element />)
-		expect(screen.getByText('newICE')).toBeDefined()
+		expect(screen.getByText('newsignal')).toBeDefined()
 	})
 })

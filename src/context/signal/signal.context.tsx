@@ -1,16 +1,16 @@
 import { PropsWithChildren, createContext, useState } from 'react'
-import { ICEContextType } from './types/ice-context.type'
+import { SignalContextType } from './types/signal-context.type'
 
-export const ICEContext = createContext<ICEContextType>({
-	setICE: null,
-	ICE: null,
+export const SignalContext = createContext<SignalContextType>({
+	setSignal: null,
+	signal: null,
 })
 
-export const ICEContextProvider = ({ children }: PropsWithChildren) => {
-	const [ICE, setICE] = useState('')
+export const SignalContextProvider = ({ children }: PropsWithChildren) => {
+	const [signal, setSignal] = useState('')
 	return (
-		<ICEContext.Provider value={{ ICE, setICE }}>
+		<SignalContext.Provider value={{ signal, setSignal }}>
 			{children}
-		</ICEContext.Provider>
+		</SignalContext.Provider>
 	)
 }

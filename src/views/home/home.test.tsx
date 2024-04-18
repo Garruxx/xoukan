@@ -2,7 +2,7 @@ import { fireEvent, render } from '@testing-library/react'
 import { Home } from './home'
 import { ui } from './lang/ui'
 import { act } from 'react-dom/test-utils'
-import { ICEContextProvider } from '@src/context/signal/signal.context'
+import { SignalContextProvider } from '@src/context/signal/signal.context'
 
 jest.useFakeTimers()
 describe('home', () => {
@@ -12,27 +12,27 @@ describe('home', () => {
 
 	test('home should be render', () => {
 		const { baseElement } = render(
-			<ICEContextProvider>
+			<SignalContextProvider>
 				<Home ICEToCopy="" />
-			</ICEContextProvider>,
+			</SignalContextProvider>,
 		)
 		expect(baseElement).toBeDefined()
 	})
 
 	test('xoukan logo to be rendered', () => {
 		const { getByRole } = render(
-			<ICEContextProvider>
+			<SignalContextProvider>
 				<Home ICEToCopy="" />
-			</ICEContextProvider>,
+			</SignalContextProvider>,
 		)
 		expect(getByRole('img')).toBeDefined()
 	})
 	test('xoukan welcome text to be rendered', () => {
 		jest.spyOn(window.navigator, 'language', 'get').mockReturnValue('en-US')
 		const { getByText } = render(
-			<ICEContextProvider>
+			<SignalContextProvider>
 				<Home ICEToCopy="" />
-			</ICEContextProvider>,
+			</SignalContextProvider>,
 		)
 		expect(getByText(ui.welcome_text)).toBeDefined()
 		jest.resetAllMocks()
@@ -41,9 +41,9 @@ describe('home', () => {
 	test('button to copy should be rendered', () => {
 		jest.spyOn(window.navigator, 'language', 'get').mockReturnValue('en-US')
 		const { getByRole } = render(
-			<ICEContextProvider>
+			<SignalContextProvider>
 				<Home ICEToCopy="" />
-			</ICEContextProvider>,
+			</SignalContextProvider>,
 		)
 		const button = getByRole('button')
 		expect(button).toBeDefined()
@@ -58,9 +58,9 @@ describe('home', () => {
 
 		//renderer
 		const { getByRole } = render(
-			<ICEContextProvider>
+			<SignalContextProvider>
 				<Home ICEToCopy="" />
-			</ICEContextProvider>,
+			</SignalContextProvider>,
 		)
 		const button = getByRole('button')
 
@@ -84,9 +84,9 @@ describe('home', () => {
 
 		//renderer
 		const { getByRole } = render(
-			<ICEContextProvider>
+			<SignalContextProvider>
 				<Home ICEToCopy="" />
-			</ICEContextProvider>,
+			</SignalContextProvider>,
 		)
 		const button = getByRole('button')
 
@@ -103,7 +103,7 @@ describe('home', () => {
 		window.prompt = beforePrompt
 	})
 
-	test('press the button should copy ICE', async () => {
+	test('press the button should copy signal', async () => {
 		//mocks
 		jest.spyOn(window.navigator, 'language', 'get').mockReturnValue('en-US')
 		const beforePrompt = window.prompt
@@ -111,9 +111,9 @@ describe('home', () => {
 
 		//renderer
 		const { getByRole } = render(
-			<ICEContextProvider>
+			<SignalContextProvider>
 				<Home ICEToCopy="" />
-			</ICEContextProvider>,
+			</SignalContextProvider>,
 		)
 		const button = getByRole('button')
 

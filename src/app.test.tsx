@@ -18,14 +18,14 @@
 */
 import App from './App'
 import { render } from '@testing-library/react'
-import { ICEContextProvider } from './context/signal/signal.context'
+import { SignalContextProvider } from './context/signal/signal.context'
 
 describe('App', () => {
 	test('should render', () => {
 		const { baseElement } = render(
-			<ICEContextProvider>
+			<SignalContextProvider>
 				<App />
-			</ICEContextProvider>,
+			</SignalContextProvider>,
 		)
 		expect(baseElement).toBeDefined()
 	})
