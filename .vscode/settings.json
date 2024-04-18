@@ -16,6 +16,7 @@
         "jest",
         "lang",
         "webRTC",
-        "typescript"
+        "typescript",
+        "hooks"
     ]
 }
