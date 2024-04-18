@@ -17,6 +17,7 @@
         "lang",
         "webRTC",
         "typescript",
-        "hooks"
+        "hooks",
+        "context"
     ]
 }
