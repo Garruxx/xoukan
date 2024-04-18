@@ -18,7 +18,7 @@
 */
 import App from './App'
 import { render } from '@testing-library/react'
-import { ICEContextProvider } from './context/signal/ice.context'
+import { ICEContextProvider } from './context/signal/signal.context'
 
 describe('App', () => {
 	test('should render', () => {

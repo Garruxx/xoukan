@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { useICE } from './use-ice'
-import { ICEContext, ICEContextProvider } from '../ice.context'
+import { ICEContext, ICEContextProvider } from '../signal.context'
 
 describe('useICE', () => {
 	test('ICE should be defined', () => {

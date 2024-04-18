@@ -1,5 +1,5 @@
 import { JSX, useContext, useEffect } from 'react'
-import { ICEContext, ICEContextProvider } from './ice.context'
+import { ICEContext, ICEContextProvider } from './signal.context'
 import { render, screen } from '@testing-library/react'
 
 describe('ipcContext', () => {
