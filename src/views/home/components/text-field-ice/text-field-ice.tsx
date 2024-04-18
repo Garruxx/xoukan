@@ -15,14 +15,26 @@ export const TextFieldIce = () => {
 		<div className={textFieldIce.textFieldSignal}>
 			<label>
 				<span>{ui.input_label}</span>
-				<input
-					title={ui.input_placeholder}
-					type="text"
-					placeholder={ui.input_placeholder}
-					value={signal}
-					onChange={handleChange}
-					required
-				/>
+				<div>
+					<input
+						title={ui.input_placeholder}
+						type="text"
+						placeholder={ui.input_placeholder}
+						value={signal}
+						onChange={handleChange}
+						disabled={!!signal}
+						required
+					/>
+					{!!signal && (
+						<button
+							type="button"
+							className={textFieldIce.restart}
+							onClick={() => location.reload()}
+						>
+							↺
+						</button>
+					)}
+				</div>
 			</label>
 		</div>
 	)
