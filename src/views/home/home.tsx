@@ -4,7 +4,7 @@ import home from './home.module.sass'
 import copy from 'copy-to-clipboard'
 import { useCallback, useState } from 'react'
 import { HomeProps } from './types/home.props'
-import { TextFieldIce } from './components/text-field-ice/text-field-ice'
+import { TextFieldIce } from './components/text-field-signal/text-field-signal'
 export const Home = ({ ICEToCopy }: HomeProps) => {
 	const [isCopied, setIsCopied] = useState(false)
 	const copyToClipboard = useCallback(() => {

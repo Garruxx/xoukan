@@ -1,5 +1,5 @@
 import { act, fireEvent, render } from '@testing-library/react'
-import { TextFieldIce } from './text-field-ice'
+import { TextFieldIce } from './text-field-signal'
 import { ui } from '../../lang/ui'
 import { SignalContextProvider } from '@src/context/signal/signal.context'
 import { useSignal } from '@src/context/signal/hook/use-signal'

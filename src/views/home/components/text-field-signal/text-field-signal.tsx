@@ -1,7 +1,7 @@
 import { useSignal } from '@src/context/signal/hook/use-signal'
 import { ui } from '../../lang/ui'
 import { useCallback } from 'react'
-import textFieldIce from './text-field-ice.module.sass'
+import textFieldIce from './text-field-signal.module.sass'
 
 export const TextFieldIce = () => {
 	const { signal, setSignal } = useSignal()
