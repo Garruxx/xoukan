@@ -27,13 +27,13 @@ export interface RTCMessageEvent extends MessageEvent {
 
 export class WRTCFileTransfer extends WRTCConnect {
 	private onError?: (error: string) => void
-	private onNewFIle: (
+	private onNewFIle?: (
 		file: { name: string; size: number },
 		save: () => void,
 	) => void
 
 	constructor(
-		onNewFile: (
+		onNewFile?: (
 			file: { name: string; size: number },
 			save: () => void,
 		) => void,
@@ -46,6 +46,14 @@ export class WRTCFileTransfer extends WRTCConnect {
 		this.onNewFIle = onNewFile
 	}
 
+	set onNewFile(
+		onNewFile: (
+			file: { name: string; size: number },
+			save: () => void,
+		) => void,
+	) {
+		this.onNewFIle = onNewFile
+	}
 	async sendFile(file: File) {
 		const channel = this.createDataChannel(
 			'xoukanFile:' + file.size + ':' + file.name,
@@ -79,7 +87,7 @@ export class WRTCFileTransfer extends WRTCConnect {
 		if (!size || !name || isNaN(size)) {
 			return this.onError?.(ui.invalidTransfer)
 		}
-		this.onNewFIle({ name, size }, async () => {
+		this.onNewFIle?.({ name, size }, async () => {
 			const file = createWriteStream(name, { size }).getWriter()
 
 			channel.onmessage = (ev) => file.write(ev.data)
