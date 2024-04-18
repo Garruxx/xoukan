@@ -7,15 +7,32 @@
             font-size: var(--text-title)
             display: block
             margin-bottom: 4px
-        input
-            padding: var(--container-paddings)
+        div
+            display: flex
+            flex-wrap: wrap
+            max-width: 220px
             width: 220px
-            height: 37px
-            box-sizing: border-box
-            background: var(--surface)
-            &::placeholder
-                font-size: var(--text-small)
-                color: var(--secondary)
+            input
+                display: block
+                padding: var(--container-paddings)
+                flex: 1
+                width: calc( 220px - 30px )
+                height: 37px
+                box-sizing: border-box
+                background: var(--surface)
+                &::placeholder
+                    font-size: var(--text-small)
+                    color: var(--secondary)
+            button.restart
+                width: 30px
+                display: flex
+                justify-content: center
+                align-items: center
+                background: var(--secondary)
+                padding: 0
+                &:active
+                    opacity: .6
+
         &:has(input:valid)::after
             position: absolute
             display: flex
