@@ -1,4 +1,4 @@
 export interface HeaderProps {
-	conectionStatus: string
+	isConnected: boolean
 	infoText: string
 }

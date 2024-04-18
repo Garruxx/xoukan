@@ -1,15 +1,20 @@
 import { HeaderProps } from './types/header.props'
 import gitLogo from './assets/github-mark-white.svg'
 import header from './header.module.sass'
+import { ui } from './lang/ui'
 
-export const Header = ({ conectionStatus, infoText }: HeaderProps) => {
+export const Header = ({ isConnected }: HeaderProps) => {
 	return (
 		<div className={header.header}>
 			<div>
-				<h2>{conectionStatus}</h2>
+				<h2>{isConnected ? ui.online : ui.offline}</h2>
 				<div>
 					<p>
-						<span>{infoText}</span>
+						<span>
+							{isConnected
+								? ui.onlineInfoText
+								: ui.offlineInfoText}
+						</span>
 					</p>
 				</div>
 			</div>
