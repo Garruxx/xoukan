@@ -88,7 +88,6 @@ export class WRTCConnect extends RTCPeerConnection {
 	async setRemoteSignalB64(str: string) {
 		const conection = JSON.parse(atob(str))
 		await this.addRemoteConection(conection)
-		this.candidates = []
 	}
 
 	async getAnswer() {
@@ -103,7 +102,7 @@ export class WRTCConnect extends RTCPeerConnection {
 		return btoa(
 			JSON.stringify({
 				description: answer,
-				candidates: [],
+				candidates: this.candidates,
 				type: 'answer',
 			}),
 		)

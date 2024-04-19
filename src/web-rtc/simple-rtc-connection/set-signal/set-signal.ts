@@ -28,10 +28,7 @@ export const setSignal = async (
 		const conectionData = JSON.parse(atob(signalB64))
 		if (!conectionData.description || !conectionData.candidates) return
 		await wrtcConection.setRemoteSignalB64(signalB64)
-
-		if (conectionData.type == 'offer') {
-			setAnswer(await wrtcConection.getAnswerB64())
-		}
+		setAnswer(await wrtcConection.getAnswerB64())
 	} catch {
 		onError && onError()
 	}
