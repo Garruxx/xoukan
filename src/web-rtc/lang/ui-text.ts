@@ -2,7 +2,7 @@ import { ui_en } from './en'
 import { ui_es } from './es'
 import { ui_ja } from './ja'
 
-export const ui = (() => {
+export const uiText = (() => {
 	const lang = navigator.language.split('-')[0]
 	switch (lang) {
 		// english

@@ -17,7 +17,7 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-import { ui } from '../lang/ui'
+import { uiText } from '../lang/ui-text'
 import { WRTCConnect } from '../connection/web-rtc-connect'
 import { createWriteStream } from 'streamsaver'
 
@@ -85,7 +85,7 @@ export class WRTCFileTransfer extends WRTCConnect {
 
 		// Validate file size and name
 		if (!size || !name || isNaN(size)) {
-			return this.onError?.(ui.invalidTransfer)
+			return this.onError?.(uiText.invalidTransfer)
 		}
 		this.onNewFIle?.({ name, size }, async () => {
 			const file = createWriteStream(name, { size }).getWriter()
@@ -94,7 +94,7 @@ export class WRTCFileTransfer extends WRTCConnect {
 			channel.onclose = () => file.close()
 			channel.onerror = () => {
 				file.abort()
-				this.onError?.(ui.transferAborted)
+				this.onError?.(uiText.transferAborted)
 			}
 		})
 	}

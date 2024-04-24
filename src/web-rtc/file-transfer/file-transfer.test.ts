@@ -1,4 +1,4 @@
-import { ui } from '../lang/ui'
+import { uiText } from '../lang/ui-text'
 import { WRTCFileTransfer } from './file-transfer'
 
 describe('WRTCFileTransfer', () => {
@@ -140,7 +140,7 @@ describe('WRTCFileTransfer', () => {
 						label: 'xoukanFile:size:name',
 					},
 				} as RTCMessageEvent<unknown>)
-				expect(onError).toHaveBeenCalledWith(ui.invalidTransfer)
+				expect(onError).toHaveBeenCalledWith(uiText.invalidTransfer)
 			})
 			test('size does not exist', () => {
 				const onError = jest.fn()
@@ -150,7 +150,7 @@ describe('WRTCFileTransfer', () => {
 						label: 'xoukanFile::name',
 					},
 				} as RTCMessageEvent<unknown>)
-				expect(onError).toHaveBeenCalledWith(ui.invalidTransfer)
+				expect(onError).toHaveBeenCalledWith(uiText.invalidTransfer)
 			})
 			test('name does not exist', () => {
 				const onError = jest.fn()
@@ -160,7 +160,7 @@ describe('WRTCFileTransfer', () => {
 						label: 'xoukanFile:128:',
 					},
 				} as RTCMessageEvent<unknown>)
-				expect(onError).toHaveBeenCalledWith(ui.invalidTransfer)
+				expect(onError).toHaveBeenCalledWith(uiText.invalidTransfer)
 			})
 		})
 
