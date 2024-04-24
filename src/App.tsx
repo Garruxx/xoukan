@@ -19,11 +19,32 @@
 import app from '@src/App.module.sass'
 import { Header } from './components/header/header'
 import { Home } from './views/home/home'
+import { useEffect, useRef, useState } from 'react'
+import { getSignal, setSignal } from './web-rtc/simple-rtc-connection/'
+import { WRTCFileTransfer } from './web-rtc/file-transfer/file-transfer'
+import { useSignal } from './context/signal/hook/use-signal'
 function App() {
+	const wrtcConnection = useRef<WRTCFileTransfer>()
+	const { signal } = useSignal()
+	const [signalToCopy, setSignalToCopy] = useState('')
+	const [isConnected, setIsConnected] = useState(false)
+
+	useEffect(() => {
+		const fileTransfer = new WRTCFileTransfer()
+		wrtcConnection.current = fileTransfer
+		getSignal(fileTransfer, setSignalToCopy, setIsConnected)
+		return () => fileTransfer.close()
+	}, [])
+
+	useEffect(() => {
+		if (!wrtcConnection.current) return
+		setSignal(wrtcConnection.current, signal, setSignalToCopy)
+	}, [signal, wrtcConnection])
+
 	return (
 		<div className={app.app}>
-			<Header conectionStatus="Conexión inactiva" infoText="" />
-			<Home ICEToCopy="algún texto para copiar" />
+			<Header isConnected={isConnected} />
+			<Home signalToCopy={signalToCopy} />
 		</div>
 	)
 }
