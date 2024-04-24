@@ -1,4 +1,4 @@
-import transfer from './transfer.module.sass'
+import transfer from './transferer.module.sass'
 export const Transferer = () => {
 	return (
 		<div className={transfer.transfer}>
