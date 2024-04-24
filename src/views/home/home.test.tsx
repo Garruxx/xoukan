@@ -59,7 +59,7 @@ describe('home', () => {
 		//renderer
 		const { getByRole } = render(
 			<SignalContextProvider>
-				<Home signalToCopy="" />
+				<Home signalToCopy="signal" />
 			</SignalContextProvider>,
 		)
 		const button = getByRole('button')
@@ -85,7 +85,7 @@ describe('home', () => {
 		//renderer
 		const { getByRole } = render(
 			<SignalContextProvider>
-				<Home signalToCopy="" />
+				<Home signalToCopy="signal" />
 			</SignalContextProvider>,
 		)
 		const button = getByRole('button')
@@ -112,7 +112,7 @@ describe('home', () => {
 		//renderer
 		const { getByRole } = render(
 			<SignalContextProvider>
-				<Home signalToCopy="" />
+				<Home signalToCopy="signal" />
 			</SignalContextProvider>,
 		)
 		const button = getByRole('button')
