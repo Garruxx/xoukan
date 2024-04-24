@@ -1,6 +1,6 @@
 import { fireEvent, render } from '@testing-library/react'
 import { Home } from './home'
-import { ui } from './lang/ui'
+import { uiText } from './lang/ui-text'
 import { act } from 'react-dom/test-utils'
 import { SignalContextProvider } from '@src/context/signal/signal.context'
 
@@ -34,7 +34,7 @@ describe('home', () => {
 				<Home signalToCopy="" />
 			</SignalContextProvider>,
 		)
-		expect(getByText(ui.welcome_text)).toBeDefined()
+		expect(getByText(uiText.welcome_text)).toBeDefined()
 		jest.resetAllMocks()
 	})
 
@@ -47,7 +47,7 @@ describe('home', () => {
 		)
 		const button = getByRole('button')
 		expect(button).toBeDefined()
-		expect(button.textContent).toBe(ui.copy_conection_btn)
+		expect(button.textContent).toBe(uiText.copy_conection_btn)
 		jest.resetAllMocks()
 	})
 	test('button to copy should be change their text when is copied', async () => {
@@ -70,7 +70,7 @@ describe('home', () => {
 			await Promise.resolve()
 		})
 		//test
-		expect(button.textContent).toBe(ui.copied_connection)
+		expect(button.textContent).toBe(uiText.copied_connection)
 		// reset mocks
 		jest.resetAllMocks()
 		window.prompt = beforePrompt
@@ -97,7 +97,7 @@ describe('home', () => {
 			await Promise.resolve()
 		})
 		//test
-		expect(button.textContent).toBe(ui.copy_conection_btn)
+		expect(button.textContent).toBe(uiText.copy_conection_btn)
 		// reset mocks
 		jest.resetAllMocks()
 		window.prompt = beforePrompt

@@ -1,5 +1,5 @@
 import { useSignal } from '@src/context/signal/hook/use-signal'
-import { ui } from '../../lang/ui'
+import { uiText } from '../../lang/ui-text'
 import { useCallback } from 'react'
 import textFieldIce from './text-field-signal.module.sass'
 
@@ -14,12 +14,12 @@ export const TextFieldSignal = () => {
 	return (
 		<div className={textFieldIce.textFieldSignal}>
 			<label>
-				<span>{ui.input_label}</span>
+				<span>{uiText.input_label}</span>
 				<div>
 					<input
-						title={ui.input_placeholder}
+						title={uiText.input_placeholder}
 						type="text"
-						placeholder={ui.input_placeholder}
+						placeholder={uiText.input_placeholder}
 						value={signal}
 						onChange={handleChange}
 						disabled={!!signal}

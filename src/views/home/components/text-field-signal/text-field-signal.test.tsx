@@ -1,6 +1,6 @@
 import { act, fireEvent, render } from '@testing-library/react'
 import { TextFieldSignal } from './text-field-signal'
-import { ui } from '../../lang/ui'
+import { uiText } from '../../lang/ui-text'
 import { SignalContextProvider } from '@src/context/signal/signal.context'
 import { useSignal } from '@src/context/signal/hook/use-signal'
 describe('text-field-ICE', () => {
@@ -20,7 +20,7 @@ describe('text-field-ICE', () => {
 				<TextFieldSignal />
 			</SignalContextProvider>,
 		)
-		expect(getByText(ui.input_label)).toBeDefined()
+		expect(getByText(uiText.input_label)).toBeDefined()
 	})
 
 	it('should render the input', () => {
