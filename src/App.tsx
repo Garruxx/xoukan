@@ -23,6 +23,7 @@ import { useEffect, useRef, useState } from 'react'
 import { getSignal, setSignal } from './web-rtc/simple-rtc-connection/'
 import { WRTCFileTransfer } from './web-rtc/file-transfer/file-transfer'
 import { useSignal } from './context/signal/hook/use-signal'
+import { Transferer } from './views/transferer/transferer'
 function App() {
 	const wrtcConnection = useRef<WRTCFileTransfer>()
 	const { signal } = useSignal()
@@ -44,7 +45,11 @@ function App() {
 	return (
 		<div className={app.app}>
 			<Header isConnected={isConnected} />
-			<Home signalToCopy={signalToCopy} />
+			{isConnected ? (
+				<Transferer />
+			) : (
+				<Home signalToCopy={signalToCopy} />
+			)}
 		</div>
 	)
 }
